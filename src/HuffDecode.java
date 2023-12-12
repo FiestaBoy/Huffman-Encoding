@@ -1,13 +1,17 @@
 import java.util.Map;
 
 public class HuffDecode {
+
+    // decodes a compressed string using a decoder map
     public static String decode(Map<String, Character> decoder, String compressed) {
         String decoded = "";
         String cur = "";
 
+        // iterate through each bit in the compressed string
         for (char bit : compressed.toCharArray()) {
             cur += bit;
 
+            // if the current bit sequence is a key in the decoder map, add the corresponding character to the decoded string
             if (decoder.containsKey(cur)) {
                 decoded += decoder.get(cur);
                 cur = "";
